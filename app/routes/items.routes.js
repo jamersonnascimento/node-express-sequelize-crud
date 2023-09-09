@@ -7,16 +7,15 @@ module.exports = app => {
   
     router.get("/", items.findAll);
   
-    router.get("/flammables", items.findAllPublished);
-  
     router.get("/:id", items.findOne);
-  
+
+    router.get("/flammables", items.findAllFlammables);
+    
     router.put("/:id", items.update);
   
     router.delete("/:id", items.delete);
   
     router.delete("/", items.deleteAll);
-  
+
     app.use('/api/items', router);
   };
-  
